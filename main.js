@@ -1,6 +1,6 @@
-// const readline = require('node:readline');
+import { crawlPage } from "./crawl.js"
 
-function main(){
+async function main(){
     if (process.argv.length < 3){
         console.log('No website given')}
     if(process.argv.length > 3){
@@ -8,5 +8,7 @@ function main(){
 
     const baseURL = process.argv[2]
     console.log(`Starting crawl of: ${baseURL}`)
+    const p = await crawlPage(baseURL)
+    console.log('crawled pages =', p)
 }
 main()

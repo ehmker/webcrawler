@@ -1,4 +1,4 @@
-import { normalizeURL, getURLFromHTML } from "./crawl"
+import { normalizeURL, getLinksFromHTML } from "./crawl"
 import { test, expect } from "@jest/globals"
 
 // const normalizeURL = require('./crawl')
@@ -33,7 +33,7 @@ expect(actual).toEqual(expected)
 test('getURLFromHTML', () => {
   const input = '<body><a href="/index/thing">Learn Backend Development</a> <a href="http://BLOG.boot.dev/path"</a></body>'
   const baseURL = 'boot.dev'
-  const actual = getURLFromHTML(input, baseURL)
+  const actual = getLinksFromHTML(input, baseURL)
   const expected = ['boot.dev/index/thing','http://blog.boot.dev/path']
   expect(actual).toEqual(expected)
 })
@@ -41,7 +41,7 @@ test('getURLFromHTML', () => {
 test('getURLFromHTML', () => {
   const input = '<body><a href="http://blog.boot.dev/path"</a></body>'
   const baseURL = 'boot.dev'
-  const actual = getURLFromHTML(input, baseURL)
+  const actual = getLinksFromHTML(input, baseURL)
   const expected = ['http://blog.boot.dev/path']
   expect(actual).toEqual(expected)
 })

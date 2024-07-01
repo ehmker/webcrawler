@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
-    "start": "node main.js https://wagslane.dev"
+    "start": "node main.js https://wagslane.dev",
+    "debug": "node --debug-brk main.js"
   },
   "jest": {
     "transform": {}
